@@ -1,0 +1,156 @@
+{
+  "name": "Payment Reminder Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 20,
+              "triggerAtMinute": 30
+            },
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -256,
+        0
+      ],
+      "id": "9dc7aa4b-7966-4d03-8040-45ad596ddcd3",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1BATn7GDKJL8YGEAnkWLzfZV-GeHFJuL_zuwGd4XSkOI",
+          "mode": "list",
+          "cachedResultName": "Students_Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BATn7GDKJL8YGEAnkWLzfZV-GeHFJuL_zuwGd4XSkOI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1BATn7GDKJL8YGEAnkWLzfZV-GeHFJuL_zuwGd4XSkOI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        0
+      ],
+      "id": "103f3a8c-e71b-4ba2-a774-29ba668ce671",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Ou0o9PCB5LwSFpRv",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get today's date in local timezone (YYYY-MM-DD)\nconst today = new Date().toLocaleDateString('en-CA');\n\n// Get incoming items\nconst items = $input.all();\n\nconsole.log(\"Today:\", today);\nconsole.log(\"Incoming items:\", items.length);\n\n// Filter where Due Date === today\nconst filtered = items.filter(item => {\n  const due = item.json[\"Due Date\"];   // ✅ Correct field name\n\n  if (!due) return false;\n\n  const normalizedDue = due.split(\"T\")[0]; // remove time if exists\n  return normalizedDue === today;\n});\n\nconsole.log(\"Matched:\", filtered.length);\n\nreturn filtered;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        160,
+        0
+      ],
+      "id": "a0538b1c-7596-4d9c-8aa2-0e7872dc6a07",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Payment Reminder ",
+        "emailType": "text",
+        "message": "=Hi S {{ $json.Name }},\n\nThis is a reminder that your fee is due today \n{{ $json['Due Date'] }} . Please make the payment at the earliest.\n\nRegards, \nAccounts Team",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        368,
+        0
+      ],
+      "id": "be5e40ce-9bbf-4e7f-acf4-8e21493d9e46",
+      "name": "Send a message",
+      "webhookId": "892cdec5-5704-4ba8-998b-7321faf9a4a3",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "iNw3v2aswqDk342V",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -16,
+        144
+      ],
+      "typeVersion": 1,
+      "id": "daf28593-30a3-4348-bd81-4bdd74ba8e59",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "01b2251d-24c0-4a0d-8607-239b233ee7bc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d2dd68b83b59bbbec1b76d8b9aa28d31dc18ae3c440ccabdc283b6d121474447"
+  },
+  "id": "TcF8ZrnPl4jCDFlJ",
+  "tags": []
+}
