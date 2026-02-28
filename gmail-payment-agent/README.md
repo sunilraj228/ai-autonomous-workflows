@@ -1,23 +1,29 @@
-🤖 Autonomous Gmail Payment Reminder Agent
-📝 Description
-This project is an Autonomous AI Agent designed to bridge the gap between financial record-keeping and client communication. It monitors a Google Sheet for upcoming payment deadlines and triggers personalized, professional email reminders through Gmail.
+# 🤖 Autonomous Gmail Payment Reminder Agent
 
-The Problem: Manual follow-ups are time-consuming and prone to human error—forgetting a reminder or messaging the wrong client.
-The Solution: A "set-and-forget" n8n workflow that uses a custom JavaScript filter to ensure 100% accuracy in outreach timing.
 
-⚙️ Workflow Architecture
-Trigger (Schedule Node): The agent "wakes up" every day at 09:00 AM.
+## 📝 Description
+This project is an **Autonomous AI Agent** designed to bridge the gap between financial record-keeping and client communication. It monitors a Google Sheet for upcoming payment deadlines and triggers personalized, professional email reminders through Gmail.
 
-Fetch (Google Sheets Node): It reads the "Invoices" spreadsheet database.
+**The Problem:** Manual follow-ups are time-consuming and prone to human error—forgetting a reminder or messaging the wrong client.  
+**The Solution:** A "set-and-forget" n8n workflow that uses a custom JavaScript filter to ensure 100% accuracy in outreach timing.
 
-Logic (The Brain): A custom JavaScript node filters only the rows where the Due Date matches Today.
+---
 
-Action (Gmail Node): For every matched row, it fires a personalized email using dynamic data (Name, Invoice ID, etc.).
+## ⚙️ Workflow Architecture
 
-🧠 Technical Implementation: The Logic
-The core of this project is the JavaScript Filtering Node. Standard "no-code" filters can struggle with date-string formats from different regions. I implemented a robust script using the en-CA locale to force a clean YYYY-MM-DD comparison.
+1.  **Trigger (Schedule Node):** The agent "wakes up" every day at **09:00 AM**.
+2.  **Fetch (Google Sheets Node):** It reads the "Invoices" spreadsheet database.
+3.  **Logic (The Brain):** A custom JavaScript node filters only the rows where the `Due Date` matches `Today`.
+4.  **Action (Gmail Node):** For every matched row, it fires a personalized email using dynamic data (Name, Invoice ID, etc.).
 
-JavaScript
+---
+
+## 🧠 Technical Implementation: The Logic
+
+The core of this project is the **JavaScript Filtering Node**. Standard "no-code" filters can struggle with date-string formats from different regions. I implemented a robust script using the `en-CA` locale to force a clean `YYYY-MM-DD` comparison.
+
+
+```javascript
 // Get today's date in local timezone (YYYY-MM-DD)
 const today = new Date().toLocaleDateString('en-CA');
 
@@ -36,6 +42,7 @@ const filtered = items.filter(item => {
 });
 
 return filtered;
+```
 🚀 Setup & Installation
 1. Prerequisites
 An n8n instance (Desktop, Cloud, or Docker).
