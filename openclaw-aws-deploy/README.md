@@ -1,6 +1,92 @@
-🤖 OpenClaw (Clawdbot) Deployment Guide: AWS EC2A minimal, step-by-step guide to deploying OpenClaw—an autonomous AI agent designed for 24/7 task execution and remote control via Telegram. This setup is optimized for the AWS Free Tier to ensure a low-cost, persistent AI "employee".🏗️ Infrastructure & EnvironmentThis deployment was tested and verified using the following configuration:ComponentSpecificationCloud ProviderAWS EC2 (Free Tier)RegionEurope (Stockholm – eu-north-1)Instance Typem7i-flex.largeOperating SystemUbuntu 22.04DeploymentDocker Compose⚠️ Security WarningOpenClaw requires system-level access and external API keys. To prevent unauthorized access or data exfiltration, follow these precautions:Isolation: Run OpenClaw on a dedicated EC2 instance; never on your primary personal computer.Credential Safety: Never commit your .env file to GitHub. Use the provided .env.example as a template.Network Security: Use AWS Security Groups to restrict inbound ports to only necessary traffic.Key Rotation: Regularly rotate your OpenAI, Anthropic, or Gemini API keys.Injection Awareness: Be aware of "Prompt Injection" risks where malicious data could trick the agent into deleting files.📋 RequirementsBefore you begin, ensure you have the following ready:An active AWS Account.An EC2 Instance running Ubuntu 22.04 with Docker and Docker Compose installed.API Keys: One from OpenAI, Anthropic (Claude), or Gemini.Telegram Bot Token: Obtained from @BotFather.🚀 Quick Start1. Clone the RepositoryBashgit clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-2. Environment SetupCopy the example environment file and add your credentials:Bashcp .env.example .env
+To ensure your README.md looks professional on GitHub, I have refined the hierarchy, added syntax highlighting, and included a "Table of Contents" for easy navigation. This structure follows the specific AWS configurations and security warnings from the masterclass.
+
+🤖 OpenClaw-EC2-Starter
+A minimal guide to deploying OpenClaw, an autonomous AI agent capable of running tasks 24/7 and being controlled remotely through Telegram. This implementation is optimized for AWS EC2 Free Tier in the Europe (Stockholm) region.
+
+📑 Table of Contents
+Infrastructure Overview
+
+Security Protocols
+
+Prerequisites
+
+Installation
+
+Connecting Telegram
+
+Directory Structure
+
+🏗️ Infrastructure Overview
+This guide was tested on a high-performance, cost-effective configuration within the AWS Europe region:
+
+Cloud Provider: AWS EC2
+
+Region: Europe (Stockholm – eu-north-1)
+
+Instance Type: m7i-flex.large
+
+Operating System: Ubuntu 22.04
+
+Deployment: Docker Compose
+
+⚠️ Security Protocols
+OpenClaw requires system-level access and external API keys. Please adhere to these safety standards:
+
+[!IMPORTANT]
+Isolation: Always run autonomous agents on a dedicated instance, never your primary personal computer.
+
+Credential Safety: Never commit your .env file to GitHub.
+
+Network: Restrict inbound ports using EC2 Security Groups.
+
+Key Management: Rotate API keys from OpenAI, Anthropic, or Gemini regularly.
+
+Risk Awareness: Be mindful of "Prompt Injection" which could lead to unintended file deletion or data exfiltration.
+
+📋 Prerequisites
+Before starting, ensure you have:
+
+An active AWS Account.
+
+An EC2 instance with Docker and Docker Compose installed.
+
+API Keys: OpenAI, Anthropic (Claude), or Gemini.
+
+Telegram Bot Token: Obtained via @BotFather.
+
+🚀 Installation
+Clone the Repository
+
+Bash
+git clone https://github.com/your-username/OpenClaw-EC2-Starter.git
+cd OpenClaw-EC2-Starter
+Configure Environment
+Copy the template and add your specific tokens:
+
+Bash
+cp .env.example .env
 nano .env
-3. Deploy with DockerLaunch the OpenClaw container in the background:Bashdocker-compose up -d
-4. Telegram "Handshake"Open the OpenClaw terminal and copy the Gateway Token.Message your Telegram Bot and type: I want to connect Telegram.Follow the prompts to enter your Pairing Code to complete the link.🛠️ Project Structure/agents: Configuration for AI roles and specific "Skills"./telegram: Bot communication settings and pairing logic.openclaw.json: Main configuration file (scrubbed of private keys)..env.example: Template for required API and Gateway tokens.
+Deploy Container
+
+Bash
+docker-compose up -d
+📱 Connecting Telegram
+Access the OpenClaw terminal and copy your unique Gateway Token.
+
+Message your Telegram Bot: I want to connect Telegram.
+
+Follow the prompts to enter your Pairing Code to establish the "handshake".
+
+📂 Directory Structure
+agents/: Custom AI roles and skill definitions.
+
+telegram/: Bot communication and pairing logic.
+
+cron/: Automated task scheduling (e.g., reminders).
+
+identity/: AI persona and name configurations.
+
+openclaw.json: Main configuration file (scrubbed of private keys).
+
+Next Step:
+Would you like me to create a .gitignore file specifically for this project to ensure your .bak and .env files stay off GitHub?
