@@ -53,12 +53,14 @@ Before starting, ensure you have:
 ```bash
 git clone [https://github.com/your-username/OpenClaw-EC2-Starter.git](https://github.com/your-username/OpenClaw-EC2-Starter.git)
 cd OpenClaw-EC2-Starter
+
 2. Configure Environment
 Copy the template and add your specific tokens:
 
 Bash
 cp .env.example .env
 nano .env
+
 3. Deploy Container
 Bash
 docker-compose up -d
