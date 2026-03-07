@@ -64,6 +64,7 @@ nano .env
 3. Deploy Container
 Bash
 docker-compose up -d
+
 📱 Connecting Telegram
 Access the OpenClaw terminal and copy your unique Gateway Token.
 
