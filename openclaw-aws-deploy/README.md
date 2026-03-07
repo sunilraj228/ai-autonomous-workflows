@@ -1,4 +1,3 @@
-To ensure your README.md looks professional on GitHub, I have refined the hierarchy, added syntax highlighting, and included a "Table of Contents" for easy navigation. This structure follows the specific AWS configurations and security warnings from the masterclass.
 
 🤖 OpenClaw-EC2-Starter
 A minimal guide to deploying OpenClaw, an autonomous AI agent capable of running tasks 24/7 and being controlled remotely through Telegram. This implementation is optimized for AWS EC2 Free Tier in the Europe (Stockholm) region.
