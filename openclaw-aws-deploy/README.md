@@ -87,5 +87,3 @@ identity/: AI persona and name configurations.
 
 openclaw.json: Main configuration file (scrubbed of private keys).
 
-Next Step:
-Would you like me to create a .gitignore file specifically for this project to ensure your .bak and .env files stay off GitHub?
