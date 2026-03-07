@@ -15,7 +15,7 @@ A collection of autonomous agents and low-code workflows designed to bridge the 
 | Project | Description | Tech Used | Link |
 | :--- | :--- | :--- | :--- |
 | **Gmail Payment Agent** | Automated invoice tracking & personalized email reminders. | n8n, JS, Gmail API | [View Project](./gmail-payment-agent) |
-| **Lead Qualifier AI** | Incoming lead scoring using LLMs and CRM integration. | n8n, OpenAI, Slack | [View Project](./lead-qualifier) |
+| **Openclaw Deploy and File Analyzer** | 24/7 autonomous file analyzer and system assistant on AWS. | Docker, OpenClaw, AWS EC2 | [View Project](https://github.com/sunilraj228/ai-autonomous-workflows/tree/main/openclaw-aws-deploy) |
 
 ## 🧠 Core Competencies
 * **Advanced Logic:** Implementing complex filtering and data transformation using JavaScript.
