@@ -26,6 +26,7 @@ Tested on a high-performance, cost-effective configuration within the AWS Europe
 ---
 
 ## ⚠️ Security Protocols
+
 OpenClaw requires system-level access and external API keys. Adhere to these safety standards:
 
 > [!IMPORTANT]
@@ -39,6 +40,7 @@ OpenClaw requires system-level access and external API keys. Adhere to these saf
 ---
 
 ## 📋 Prerequisites
+
 Before starting, ensure you have:
 * An active **AWS Account**.
 * An **EC2 instance** with Docker and Docker Compose installed.
@@ -52,10 +54,13 @@ Before starting, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
+
 git clone [https://github.com/your-username/OpenClaw-EC2-Starter.git](https://github.com/your-username/OpenClaw-EC2-Starter.git)
+
 cd OpenClaw-EC2-Starter
 
 2. Configure Environment
+
 Copy the template and add your specific tokens:
 
 Bash
@@ -68,6 +73,7 @@ Bash
 docker-compose up -d
 
 📱 Connecting Telegram
+
 Access the OpenClaw terminal and copy your unique Gateway Token.
 
 Message your Telegram Bot: I want to connect Telegram.
@@ -75,6 +81,7 @@ Message your Telegram Bot: I want to connect Telegram.
 Follow the prompts to enter your Pairing Code to establish the "handshake".
 
 📂 Directory Structure
+
 agents/: Custom AI roles and skill definitions.
 
 telegram/: Bot communication and pairing logic.
@@ -88,5 +95,3 @@ openclaw.json: Main configuration file (scrubbed of private keys).
 
 ---
 
-**Next Step:**
-Would you like me to **create the `.gitignore` file** now so you can safely push your folders to GitHub without including those `.bak` files?
