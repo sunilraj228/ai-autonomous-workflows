@@ -50,6 +50,7 @@ Before starting, ensure you have:
 ## 🚀 Installation
 
 ### 1. Clone the Repository
+
 ```bash
 git clone [https://github.com/your-username/OpenClaw-EC2-Starter.git](https://github.com/your-username/OpenClaw-EC2-Starter.git)
 cd OpenClaw-EC2-Starter
@@ -62,6 +63,7 @@ cp .env.example .env
 nano .env
 
 3. Deploy Container
+
 Bash
 docker-compose up -d
 
@@ -71,3 +73,20 @@ Access the OpenClaw terminal and copy your unique Gateway Token.
 Message your Telegram Bot: I want to connect Telegram.
 
 Follow the prompts to enter your Pairing Code to establish the "handshake".
+
+📂 Directory Structure
+agents/: Custom AI roles and skill definitions.
+
+telegram/: Bot communication and pairing logic.
+
+cron/: Automated task scheduling (e.g., reminders).
+
+identity/: AI persona and name configurations.
+
+openclaw.json: Main configuration file (scrubbed of private keys).
+
+
+---
+
+**Next Step:**
+Would you like me to **create the `.gitignore` file** now so you can safely push your folders to GitHub without including those `.bak` files?
