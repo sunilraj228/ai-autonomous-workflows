@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  openclaw:
+    image: openclaw/openclaw:latest
+    container_name: openclaw-bot
+    restart: unless-stopped
+
+    # Loads the variables from your local .env file
+    env_file:
+      - .env
+
+    ports:
+      - "18789:18789"
+
+    # Persists your data even if the container is restarted
+    volumes:
+      - ./workspace:/home/openclaw/workspace
+      - ./logs:/home/openclaw/logs
+      - ./agents:/home/openclaw/agents
+      - ./telegram:/home/openclaw/telegram
