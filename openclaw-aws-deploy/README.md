@@ -54,8 +54,11 @@ Follow these steps to get your Telegram AI bot running quickly on your EC2 insta
 ### 1. Clone the Repository
 
 ```bash
+
 git clone [https://github.com/YOUR_USERNAME/OpenClaw-EC2-Starter.git](https://github.com/YOUR_USERNAME/OpenClaw-EC2-Starter.git)
+
 cd OpenClaw-EC2-Starter
+
 2. Configure Environment Variables
 Copy the template and edit it with your credentials:
 
