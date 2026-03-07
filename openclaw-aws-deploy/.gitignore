@@ -1,0 +1,19 @@
+This is the most critical file for your security. It ensures that sensitive files, local logs, and backup files are never uploaded to your public repository.
+
+
+# Secrets and Credentials
+.env
+
+# OpenClaw Local Data and Backups
+.openclaw/
+workspace/
+logs/
+*.bak
+*.bak.*
+update-check
+
+# System and Dependency Files
+node_modules/
+__pycache__/
+*.log
+.DS_Store
