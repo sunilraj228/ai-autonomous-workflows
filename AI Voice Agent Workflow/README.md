@@ -51,8 +51,10 @@ Voice Response (.wav)
 
 Connect to your Ubuntu instance and install system dependencies.
 
-sudo apt update && sudo apt upgrade -y  
+```bash
+sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip python3-venv python3-full ffmpeg git -y
+```
 
 ---
 
@@ -62,38 +64,49 @@ Ollama serves as the **local inference engine** for the Llama3 model.
 
 Install Ollama:
 
+```bash
 curl -fsSL https://ollama.com/install.sh | sh
+```
 
 Pull the Llama3 model (~4.7 GB):
 
+```bash
 ollama pull llama3
+```
 
-Start Ollama server:
+Start Ollama server
 
+```bash
 nohup ollama serve &
-
+```
 Verify Ollama is running:
 
+```bash
 ps aux | grep ollama
-
+```
 ---
 
 ## 3️⃣ Application Setup
 
 Clone the repository and prepare the Python environment.
 
+
+```bash
 git clone https://github.com/YOUR_USERNAME/voice-assistant-ollama.git  
 cd voice-assistant-ollama
+```
 
 Create a virtual environment:
 
+```bash
 python3 -m venv venv  
 source venv/bin/activate
-
+```
 Install Python dependencies:
 
+```bash
 pip install flask faster-whisper requests gTTS pydub
-
+```
 ---
 
 ## 4️⃣ Running the Application
@@ -122,10 +135,11 @@ Source: 0.0.0.0/0
 
 From your local machine, send a voice file to your EC2 instance.
 
+```bash
 curl -X POST http://<YOUR_EC2_PUBLIC_IP>:5000/voice-support \
      -F "audio=@sunilvoice.m4a" \
      --output reply.wav
-
+```
 ---
 
 # 🔊 Play the AI Response
