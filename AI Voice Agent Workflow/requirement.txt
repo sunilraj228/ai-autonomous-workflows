@@ -1,0 +1,5 @@
+flask
+faster-whisper
+requests
+gTTS
+pydub
