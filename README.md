@@ -17,11 +17,11 @@ A collection of autonomous agents and low-code workflows designed to bridge the 
 
 | Project | Description | Tech Used | Link |
 |--------|------------|----------|------|
-| Gmail Payment Agent | Automated invoice tracking & personalized email reminders. | n8n, JS, Gmail API | View Project |
-| Openclaw Deploy and File Analyzer | 24/7 autonomous file analyzer and system assistant on AWS. | Docker, OpenClaw, AWS EC2 | View Project |
-| AI News → LinkedIn Automation | End-to-end workflow that converts RSS news into AI-generated LinkedIn posts. | Make, OpenRouter, RSS, LinkedIn API | View Project |
-| AI Voice Support Assistant | Voice-to-voice AI assistant using Whisper, Llama3, and TTS deployed on AWS. | Python, Flask, Whisper, Ollama, AWS | View Project |
-| **AI Log Analyzer (No-Code AI Workflow)** | Automated log analysis system that detects root causes, suggests fixes, and classifies severity using LLMs. | Make, OpenRouter, Google Forms, Google Sheets | View Project |
+| Gmail Payment Agent | Automated invoice tracking & personalized email reminders. | n8n, JS, Gmail API |
+| Openclaw Deploy and File Analyzer | 24/7 autonomous file analyzer and system assistant on AWS. | Docker, OpenClaw, AWS EC2 | 
+| AI News → LinkedIn Automation | End-to-end workflow that converts RSS news into AI-generated LinkedIn posts. | Make, OpenRouter, RSS, LinkedIn API | 
+| AI Voice Support Assistant | Voice-to-voice AI assistant using Whisper, Llama3, and TTS deployed on AWS. | Python, Flask, Whisper, Ollama, AWS | 
+| **AI Log Analyzer (No-Code AI Workflow)** | Automated log analysis system that detects root causes, suggests fixes, and classifies severity using LLMs. | Make, OpenRouter, Google Forms, Google Sheets | 
 
 ## 🧠 Core Competencies
 * **Advanced Logic:** Implementing complex filtering and data transformation using JavaScript.
