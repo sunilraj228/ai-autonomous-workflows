@@ -364,7 +364,7 @@
                 "headers": [
                     {
                         "name": "Authorization",
-                        "value": "Bearer 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"
+                        "value": "Bearer YOUR_API_KEY"
                     },
                     {
                         "name": "Content-Type",
