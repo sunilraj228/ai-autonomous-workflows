@@ -15,8 +15,8 @@ A collection of autonomous agents and low-code workflows designed to bridge the 
 
 ## 📂 Project Directory
 
-| Project | Description | Tech Used | Link |
-|--------|------------|----------|------|
+| Project | Description | Tech Used | 
+|--------|------------|----------|
 | Gmail Payment Agent | Automated invoice tracking & personalized email reminders. | n8n, JS, Gmail API |
 | Openclaw Deploy and File Analyzer | 24/7 autonomous file analyzer and system assistant on AWS. | Docker, OpenClaw, AWS EC2 | 
 | AI News → LinkedIn Automation | End-to-end workflow that converts RSS news into AI-generated LinkedIn posts. | Make, OpenRouter, RSS, LinkedIn API | 
